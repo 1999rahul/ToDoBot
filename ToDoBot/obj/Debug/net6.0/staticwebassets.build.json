@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "9YjyALHHuZYpZredCAYXJFStSkjwWmXsuAHia8uGOk0=",
+  "Source": "ToDoBot",
+  "BasePath": "_content/ToDoBot",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ToDoBot\\wwwroot",
+      "Source": "ToDoBot",
+      "ContentRoot": "C:\\Users\\rahul\\Desktop\\C#Playground\\ToDoBot\\ToDoBot\\wwwroot\\",
+      "BasePath": "_content/ToDoBot",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\rahul\\Desktop\\C#Playground\\ToDoBot\\ToDoBot\\wwwroot\\default.htm",
+      "SourceId": "ToDoBot",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rahul\\Desktop\\C#Playground\\ToDoBot\\ToDoBot\\wwwroot\\",
+      "BasePath": "_content/ToDoBot",
+      "RelativePath": "default.htm",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\default.htm"
+    }
+  ]
+}
