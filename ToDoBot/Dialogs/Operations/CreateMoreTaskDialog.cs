@@ -35,8 +35,8 @@ namespace ToDoBot.Dialogs.Operations
     }
 
     private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            var userDetails = (User)stepContext.Options;
+    {
+        var userDetails = (User)stepContext.Options;
         stepContext.Values["Task"] = (string)stepContext.Result;
         userDetails.TasksList.Add((string)stepContext.Values["Task"]);
 
@@ -48,18 +48,18 @@ namespace ToDoBot.Dialogs.Operations
 
     private async Task<DialogTurnResult> SummaryStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
     {
-        /*var userDetails = (User)stepContext.Options;
-        if ((bool)stepContext.Result)
-        {
-            return await stepContext.ReplaceDialogAsync(InitialDialogId, userDetails, cancellationToken);
-        }
-        else
-        {
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text("Ok."));
-            return await stepContext.EndDialogAsync(userDetails, cancellationToken);
-        }*/
+            var userDetails = (User)stepContext.Options;
+            if ((bool)stepContext.Result)
+            {
+                return await stepContext.ReplaceDialogAsync(InitialDialogId, userDetails, cancellationToken);
+            }
+            else
+            {
+                await stepContext.Context.SendActivityAsync(MessageFactory.Text("Ok."));
+                return await stepContext.EndDialogAsync(userDetails, cancellationToken);
+            }
 
-            var userDetails = (User)stepContext.Result;
+          /*  var userDetails = (User)stepContext.Result;
             await stepContext.Context.SendActivityAsync(MessageFactory.Text("Here are the tasks you provided - "), cancellationToken);
             for (int i = 0; i < userDetails.TasksList.Count; i++)
             {
@@ -67,7 +67,7 @@ namespace ToDoBot.Dialogs.Operations
             }
 
             return await stepContext.EndDialogAsync(userDetails, cancellationToken);
-        
+        */
     }
 
 }

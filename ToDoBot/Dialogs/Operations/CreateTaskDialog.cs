@@ -63,7 +63,14 @@ namespace ToDoBot.Dialogs.Operations
 
         private async Task<DialogTurnResult> SummaryStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var userDetails=(User)stepContext.Result;
+            await stepContext.Context.SendActivityAsync(MessageFactory.Text("Here are the tasks you provided"));
+
+            foreach(var item in userDetails.TasksList)
+            {
+                await stepContext.Context.SendActivityAsync(MessageFactory.Text(item), cancellationToken);
+            }
+            return await stepContext.EndDialogAsync(userDetails,cancellationToken);
         }
 
     }

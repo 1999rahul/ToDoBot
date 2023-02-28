@@ -26,6 +26,7 @@ namespace ToDoBot.Dialogs
     {
         private readonly ToDoLUISRecognizer _luisRecognizer;
         private readonly ILogger _logger;
+        public static User user = new User(); 
 
         // Dependency injection uses this constructor to instantiate MainDialog
         public MainDialog(ToDoLUISRecognizer luisRecognizer,ILogger<MainDialog> logger)
@@ -98,15 +99,16 @@ namespace ToDoBot.Dialogs
 
             if ("Create Task".Equals(operation))
             {
-                return await stepContext.BeginDialogAsync(nameof(CreateTaskDialog), new User(), cancellationToken);
+                await stepContext.BeginDialogAsync(nameof(CreateTaskDialog), user, cancellationToken);
+                return await stepContext.ReplaceDialogAsync(InitialDialogId, (User)stepContext.Result, cancellationToken);
             }
             else if ("View Task".Equals(operation))
             {
-                return await stepContext.BeginDialogAsync(nameof(ViewTaskDialog), new User(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(ViewTaskDialog), (User)stepContext.Result, cancellationToken);
             }
             else if ("Delete Task".Equals(operation))
             {
-                return await stepContext.BeginDialogAsync(nameof(DeleteTaskDialog), new User(), cancellationToken);
+                return await stepContext.BeginDialogAsync(nameof(DeleteTaskDialog), (User)stepContext.Result, cancellationToken);
             }
             else
             {
